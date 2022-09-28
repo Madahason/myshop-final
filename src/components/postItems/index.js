@@ -1,46 +1,32 @@
-import React, { useState } from "react";
-import {
+import { StatusBar } from "react-native";
+import { 
   StyleSheet,
   Text,
   View,
   Image,
   SafeAreaView,
-  Platform,
-  Pressable,
-} from "react-native";
-import styles from "./styles";
-import { useNavigation } from "@react-navigation/native";
-import react from "react";
-const PostItems = (props) => {
-  const navigation = useNavigation();
-  const singlePost = props.post;
-  const [images, setimages] = useState(JSON.parse(singlePost.images));
-  // console.log(singlePost);
-  return (
-    <Pressable
-      onPress={() => {
-        navigation.navigate("PostDetails", {
-          postInfo: singlePost,
-        });
-      }}
-      style={styles.container}>
+  Platform
+ } from "react-native";
+ import styles from "./styles";
+ import { colors } from "../../modal/color";
+
+ const PostItems = () => {
+    return(
+      <View style={styles.container}>
+      <StatusBar style='auto'  />
       <View style={styles.postWrap}>
-        <Image
-          source={{
-            uri:
-              "https://dnezpuwttqdfg.cloudfront.net/fit-in/400x400/public/" +
-              images[0].imageUri,
-          }}
-          style={styles.postImage}></Image>
-        <View style={styles.postContentWrap}>
-          <View>
-            <Text style={styles.postTitle}>{singlePost.title}</Text>
-            <Text style={styles.postPlace}>{singlePost.locationName}</Text>
-          </View>
-          <Text style={styles.postValue}>${singlePost.rentValue} / Day</Text>
-        </View>
+      <Image source={{ uri:'https://picsum.photos/200/300'}} style={styles.postImage} />
+      
+         <View style={styles.postContentWrap}>
+         <View>
+         <Text style={styles.postTitle}>Title for the rent</Text>
+          <Text style={styles.postPlace}>New York</Text>
+         </View>
+          <Text style={styles. postValue}>$100/ Day</Text>
+         </View>
       </View>
-    </Pressable>
-  );
-};
-export default PostItems;
+      </View>
+    )
+ }
+
+ export default PostItems;

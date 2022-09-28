@@ -2,9 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import {
   Text,
   View,
-  // TextInput,
+  TextInput,
   // Dimensions,
-  // Platform,
+  Platform,
   // Pressable,
 } from "react-native";
 import styles from "./styles";
